@@ -1,0 +1,13 @@
+.icons .bi{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.icons .bi:hover{
+    background-color: lightgray;
+    border-radius: 5px;
+    color: #0c0c0c;
+}

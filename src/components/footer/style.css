@@ -1,0 +1,22 @@
+.email{
+    border: none;
+    outline:none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    margin-top: 30px;
+
+}
+footer{
+    line-height: 2;
+}
+footer .accordion-button:focus{
+    box-shadow: none !important;
+    background-color: transparent !important;
+    
+}
+footer .accordion-button{
+    font-size: 0.9rem !important;
+}
+.accordion-item{
+    border: none !important;
+}
