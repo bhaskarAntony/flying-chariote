@@ -53,7 +53,7 @@ function Header() {
         {
           cartData?.length!=0?(
             <div className="row">
-              {cartData.map((item, index)=>(
+              {cartData?.map((item, index)=>(
                   <div className="col-md-3">
                 <img src={item.productImage} alt="" />
               </div>
