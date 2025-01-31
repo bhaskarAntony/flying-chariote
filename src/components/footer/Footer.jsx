@@ -3,7 +3,7 @@ import './style.css'
 import { Accordion } from 'react-bootstrap'
 function Footer() {
   return (
-   <footer className='p-3 p-md-5'>
+   <footer className='p-3 p-md-5 border-top'>
     <div className="row">
         <div className="col-md-4">
         <span className="small">Sign Up</span><br />
@@ -17,8 +17,8 @@ function Footer() {
         <Accordion.Body>
            <ul type="none">
           <li> <p className="small"><a href="" className='nav-link text-secondary'>CONTACT US</a></p></li>
-           <li> <p className="small"><a href="" className='nav-link text-secondary'>RETURN A PRODUCT</a></p></li>
-            <li><p className="small"><a href="" className='nav-link text-secondary'>TRACK MY PRODUCT</a></p></li>
+           <li> <p className="small"><a href="/login" className='nav-link text-secondary'>RETURN A PRODUCT</a></p></li>
+            <li><p className="small"><a href="/login" className='nav-link text-secondary'>TRACK MY PRODUCT</a></p></li>
            </ul>
         </Accordion.Body>
       </Accordion.Item>
@@ -26,7 +26,7 @@ function Footer() {
         <Accordion.Header>COMPANY</Accordion.Header>
         <Accordion.Body>
         <ul type="none">
-          <li>    <p className="small"><a href="" className='nav-link text-secondary'>ABOUT US</a></p></li>
+          <li>    <p className="small"><a href="/about-us" className='nav-link text-secondary'>ABOUT US</a></p></li>
         </ul>
             
         </Accordion.Body>
@@ -40,11 +40,11 @@ function Footer() {
         <Accordion.Header>TERMS AND PRIVACY</Accordion.Header>
         <Accordion.Body>
         <ul type="none">
-          <li>    <p className="small"><a href="" className='nav-link text-secondary'>RETURN POLICY</a></p></li>
-          <li>    <p className="small"><a href="" className='nav-link text-secondary'>REFUND POLICY</a></p></li>
-          <li>    <p className="small"><a href="" className='nav-link text-secondary'>SHIPPING POLICY</a></p></li>
-          <li>    <p className="small"><a href="" className='nav-link text-secondary'>TERMS AND CONDITIONS</a></p></li>
-          <li>    <p className="small"><a href="" className='nav-link text-secondary'>PRIVACY POLICY</a></p></li>
+          <li>    <p className="small"><a href="/return-policy" className='nav-link text-secondary'>RETURN POLICY</a></p></li>
+          <li>    <p className="small"><a href="/refund-policy" className='nav-link text-secondary'>REFUND POLICY</a></p></li>
+          <li>    <p className="small"><a href="/shipping-policy" className='nav-link text-secondary'>SHIPPING POLICY</a></p></li>
+          <li>    <p className="small"><a href="/terms-conditions" className='nav-link text-secondary'>TERMS AND CONDITIONS</a></p></li>
+          <li>    <p className="small"><a href="/privacy-policy" className='nav-link text-secondary'>PRIVACY POLICY</a></p></li>
         </ul>
             
         </Accordion.Body>

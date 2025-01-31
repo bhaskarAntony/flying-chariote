@@ -15,6 +15,14 @@ function Header() {
     setShow(false);
   }
 
+
+  const [left, setLeft] = useState(false);
+  const handleCloseleft = () =>{
+    setLeft(false)
+  }
+  const handleShowLeft = () =>{
+    setLeft(true)
+  }
   const [cartData, setCartData] = useState( []);
   const getData = (id)=>{
       console.log(data.filter((item)=>item.id==id)[0]);
@@ -28,7 +36,8 @@ function Header() {
    <div>
      <Navbar className="bg-body-tertiary">
       <Container fluid >
-      <p className='mb-0'><a href="/collection" className='nav-link'>COLLECTIONS</a></p>
+      {/* <p className='mb-0'><a href="/collection" className='nav-link'>COLLECTIONS</a></p> */}
+      <button className='btn btn-dark' onClick={handleShowLeft}><i class="bi bi-list-nested"></i></button>
        <div className='d-flex align-items-center justify-content-center w-100'>
      
         <Navbar.Brand href="/">
@@ -39,12 +48,33 @@ function Header() {
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text className='d-flex gap-3 align-items-center fs-5 text-dark icons'>
           <i class="bi bi-search"></i>
-          <i class="bi bi-person"></i>
+          <a href="/login" className='nav-link'><i class="bi bi-person"></i></a>
           <i class="bi bi-bag" onClick={handleShow}></i>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
+    <Offcanvas show={left} onHide={handleCloseleft}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>  <img src={logo} alt="flying chariote logo" width={120}/></Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+        <ul className="left">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about-us">About us</a></li>
+          <li><a href="/contact-us">Contact us</a></li>
+          <li><a href="/collection">Collection</a></li>
+          <li><a href="/return-policy">Return Policy</a></li>
+          <li><a href="/refund-policy">Refund Policy</a></li>
+          <li><a href="/shipping-policy">Shipping Policy</a></li>
+          <li><a href="/terms-conditions">Terms and Conditions</a></li>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="https://instagram.com/@FLYING_CHARIOT.CO.IN">Visit Our Instagram</a></li>
+        </ul>
+        </Offcanvas.Body>
+      </Offcanvas>
+
       <Offcanvas show={show} onHide={handleClose} last>
       <Offcanvas.Header closeButton>
         <Offcanvas.Title> <p className="small mb-0">0 items in your cart</p> </Offcanvas.Title>
