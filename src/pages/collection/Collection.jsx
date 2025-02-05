@@ -13,6 +13,8 @@ function Collection() {
       
       <div className="d-flex gap-2 categories">
         <button>ALL</button>
+        <button>MILD</button>
+        <button>WILD</button>
         <button>CO-ORDS</button>
         <button>T-SHIRTS</button>
         <button>DENIMS</button>

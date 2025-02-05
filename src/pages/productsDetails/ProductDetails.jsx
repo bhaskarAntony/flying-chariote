@@ -29,7 +29,7 @@ function ProductDetails() {
   return (
     <section className="container-fluid p-3 p-md-5">
         <div className="row">
-            <div className="col-md-7 mb-4 h-100" style={{background:'lightgray', minHeight:'80vh'}} >
+            <div className="col-md-7 mb-4 h-100" style={{background:'lightgray'}} >
             <Carousel>
         {/* <ExampleCarouselImage text="First slide" /> */}
         {
@@ -42,9 +42,7 @@ function ProductDetails() {
         {/* <Carousel.Caption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption> */}
-     
-     
+        </Carousel.Caption> */}     
     </Carousel>
                
             </div>
