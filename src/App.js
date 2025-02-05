@@ -13,6 +13,10 @@ import TermsAndConditions from './pages/policy/TermsAndConditions'
 import PrivacyPolicy from './pages/policy/PrivacyPolicy'
 import Aboutus from './pages/about/Aboutus'
 import ContactUs from './pages/contactus/Contactus'
+import './App.css'
+import OrderDetails from './pages/productsDetails/OrderDetails'
+import { PaymentPage } from './pages/productsDetails/Payment'
+import { OrderSuccess } from './pages/productsDetails/OrderSuccess'
 
 function App() {
   return (
@@ -31,6 +35,9 @@ function App() {
           <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
           <Route path='/about-us' element={<Aboutus/>}/>
           <Route path='/contact-us' element={<ContactUs/>}/>
+          <Route path='/order-details/:id' element={<OrderDetails/>}/>
+          <Route path='/payment' element={<PaymentPage/>}/>
+          <Route path='/order-success' element={<OrderSuccess/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

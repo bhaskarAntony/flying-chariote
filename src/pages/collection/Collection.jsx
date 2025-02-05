@@ -6,17 +6,25 @@ function Collection() {
   return (
     <div className='p-3 p-md-5'>
         <div className="d-flex justify-content-between">
-            <small className="small">MILD<sup>15</sup></small>
+            <small className="small">All Products<sup>{data.length}</sup></small>
             <p className="fs-6">FILTER <i class="bi bi-filter"></i></p>
         </div>
         <hr />
-        <p className="fs-6 fw-bold">T-SHIRTS</p>
+      
+      <div className="d-flex gap-2 categories">
+        <button>ALL</button>
+        <button>CO-ORDS</button>
+        <button>T-SHIRTS</button>
+        <button>DENIMS</button>
+        <button>PANTS</button>
+        <button>SWEATSHIRTS</button>
+      </div>
 
         <section className="all-products">
             <div className="row">
                 {
                     data.map((item, index)=>(
-                        <div className="col-md-3">
+                        <div className="col-6 col-md-3">
                           <a href={`/details/${item.id}`} className='nav-link'>
                           <div className="product p-2">
                                 <img src={item.productImage} alt={item.productName} className="w-100" style={{minHeight:'200px', background:'lightgray', width:'100%'}} />

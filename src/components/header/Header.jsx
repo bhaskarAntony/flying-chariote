@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import './style.css'
 import logo from '../../assets/images/logo.png'
-import { Offcanvas } from 'react-bootstrap';
+import { Accordion, Offcanvas } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import data from '../../data/data';
 
@@ -60,7 +60,32 @@ function Header() {
           <Offcanvas.Title>  <img src={logo} alt="flying chariote logo" width={120}/></Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-        <ul className="left">
+        <Accordion>
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>SHOP BY COLLECTION</Accordion.Header>
+        <Accordion.Body>
+           <ul type="none">
+          <li> <p className="small"><a href="/collection" className='nav-link text-secondary'>MILD</a></p></li>
+           <li> <p className="small"><a href="/login" className='nav-link text-secondary'>WILD</a></p></li>
+           </ul>
+        </Accordion.Body>
+      </Accordion.Item>
+      <hr />
+      <Accordion.Item eventKey="1">
+        <Accordion.Header>SHOP BY CATEGORY</Accordion.Header>
+        <Accordion.Body>
+        <ul type="none">
+          <li>    <p className="small"><a href="/about-us" className='nav-link text-secondary'>CO-ORDS</a></p></li>
+          <li>    <p className="small"><a href="/about-us" className='nav-link text-secondary'>DENIMS</a></p></li>
+          <li>    <p className="small"><a href="/about-us" className='nav-link text-secondary'>SWEATSHIRTS</a></p></li>
+          <li>    <p className="small"><a href="/about-us" className='nav-link text-secondary'>T-SHIRTS</a></p></li>
+          <li>    <p className="small"><a href="/about-us" className='nav-link text-secondary'>PANTS</a></p></li>
+        </ul>
+            
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
+        {/* <ul className="left">
           <li><a href="/">Home</a></li>
           <li><a href="/about-us">About us</a></li>
           <li><a href="/contact-us">Contact us</a></li>
@@ -72,6 +97,45 @@ function Header() {
           <li><a href="/privacy-policy">Privacy Policy</a></li>
           <li><a href="https://instagram.com/@FLYING_CHARIOT.CO.IN">Visit Our Instagram</a></li>
         </ul>
+         */}
+      <div className="p-4">
+      <p className="fs-6"><b>SUPPORT</b></p>
+         <hr />
+         <blockquote>
+          <ul className="p-0">
+            <li>CONTACT US</li>
+            <li>RETURN A PRODUCT</li>
+            <li>TRACK MY ORDER</li>
+          </ul>
+         </blockquote>
+         <br />
+
+         <p className="fs-6"><b>COMPANY</b></p>
+         <hr />
+         <blockquote>
+          <ul className="p-0">
+            <li>ABOUT US</li>
+          
+          </ul>
+         </blockquote>
+         <br />
+         <p className="fs-6"><b>TERMS AND PRIVACY</b></p>
+         <hr />
+         <blockquote>
+          <ul className="p-0">
+            <li>RETURN PRIVACY</li>
+            <li>REFUND POLICY</li>
+            <li>SHIPPING POLICY</li>
+            <li>TERMS AND CONDITIONS</li>
+            <li>PRIVACY POLICY</li>
+          </ul>
+         </blockquote>
+      </div>
+      <hr />
+     <div className="d-flex gap-2 fs-3">
+     <i className='bi bi-instagram'></i>
+     <i className='bi bi-facebook'></i>
+     </div>
         </Offcanvas.Body>
       </Offcanvas>
 
@@ -85,7 +149,13 @@ function Header() {
             <div className="row">
               {cartData?.map((item, index)=>(
                   <div className="col-md-3">
-                <img src={item.productImage} alt="" />
+                    <div className="card">
+                      <div className="row">
+                        <div className="col-md-2">
+                        <img src={item.productImage} alt="" className='w-100' />
+                        </div>
+                      </div>
+                    </div>
               </div>
               ))}
             </div>

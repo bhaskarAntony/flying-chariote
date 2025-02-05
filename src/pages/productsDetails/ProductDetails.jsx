@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import data from '../../data/data';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './style.css'
 import { Carousel } from 'react-bootstrap';
 
 function ProductDetails() {
     const {id} = useParams();
+    const navigate = useNavigate();
     const [singleData, setSingleData] = useState({});
     const [cartData, setCartData] = useState(JSON.parse(localStorage.getItem('cartdata') )|| []);
     const [cartId, setNewCartId] = useState(null);
@@ -67,7 +68,7 @@ function ProductDetails() {
                 }
               </div>
               <button className="w-100 btn btn-dark rounded-0 p-3 mt-4" onClick={()=>AddCartHanlder(singleData)}>ADD TO CART</button>
-              <button className="w-100 btn btn-dark rounded-0 p-3 mt-4">BUY NOW</button>
+              <button className="w-100 btn btn-dark rounded-0 p-3 mt-4" onClick={()=>navigate(`/order-details/1`)}>BUY NOW</button>
               <br />
               <br />
               <p className='fs-6 mb-0'><img src="https://assets-v2.lottiefiles.com/a/373440c0-1183-11ee-a24e-7b117402fba7/KjarYPwwd8.gif" className='dot' alt="" /> EXPRESS INDIA SHIPPING</p>
@@ -102,7 +103,7 @@ function ProductDetails() {
                 <div className="col-md-3">
                 <a href={`/details/${item.id}`} className='nav-link'>
                 <div className="product p-2">
-                      <img src={item.productImage} alt={item.productName} className="w-100" />
+                      {/* <img src={item.productImage} alt={item.productName} className="w-100" /> */}
                       <br />
                       <small className="fs-6 fw-bold">{item.productName}</small><br />
                       <small className="small">{item.productCategory}</small><br />
