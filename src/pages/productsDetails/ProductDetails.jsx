@@ -3,9 +3,11 @@ import data from '../../data/data';
 import { useNavigate, useParams } from 'react-router-dom';
 import './style.css'
 import { Carousel } from 'react-bootstrap';
+import axios from 'axios';
 
 function ProductDetails() {
     const {id} = useParams();
+    const [data, setData] = useState([]);
     const navigate = useNavigate();
     const [singleData, setSingleData] = useState({});
     const [cartData, setCartData] = useState(JSON.parse(localStorage.getItem('cartdata') )|| []);
@@ -26,6 +28,37 @@ function ProductDetails() {
     useEffect(()=>{
         setSingleData(data.filter((item)=>item.id==id)[0])
     }, [])
+    useEffect(()=>{
+      const getData = async () =>{
+        try {
+            const responce = await axios.get(`http://localhost:4003/api/products/${id}`)
+            if(responce.status == 200){
+                setCartData(responce.data)
+              console.log(responce);
+            } 
+        } catch (error) {
+          console.log(error.message);
+          
+        }
+      }
+      getData();
+    }, [])
+  
+    useEffect(()=>{
+      const getData = async () =>{
+        try {
+            const responce = await axios.get('http://localhost:4003/api/products')
+            if(responce.status == 200){
+              setData(responce.data)
+              console.log(responce);
+            } 
+        } catch (error) {
+          console.log(error.message);
+          
+        }
+      }
+      getData();
+    }, [])
   return (
     <section className="container-fluid p-3 p-md-5">
         <div className="row">
@@ -33,7 +66,7 @@ function ProductDetails() {
             <Carousel>
         {/* <ExampleCarouselImage text="First slide" /> */}
         {
-                    singleData.allImages?.map((item, index)=>(
+                    cartData?.productImages?.map((item, index)=>(
                      <Carousel.Item>
                           <img src={item} alt="" className="w-100" />
                      </Carousel.Item>
@@ -48,24 +81,24 @@ function ProductDetails() {
             </div>
             <div className="col-md-5" style={{position:'sticky !important', top:'100 !important'}}>
               <div className='d-flex flex-wrap gap-2 justify-content-between align-items-center'>
-              <h1 className="fs-3 fw-normal">{(singleData.productName)?.toUpperCase()}</h1> 
-              <small className="fs-5">&#8377;{singleData.productPrice}</small>
+              <h1 className="fs-3 fw-normal">{(cartData?.productName)?.toUpperCase()}</h1> 
+              <small className="fs-5">&#8377;{cartData?.productPrice}</small>
               </div>
               <hr />
-              <p className="fs-6">{singleData.desc}</p>
-              <img src={singleData.productImage} alt={singleData.productName} className='w-25' style={{minHeight:'150px', background:'lightgray !important'}}/>
+              <p className="fs-6">{cartData?.productDescription}</p>
+              <img src={cartData?.productImage} alt={cartData?.productName} className='w-25' style={{minHeight:'150px', background:'lightgray !important'}}/>
 
               <br />
               <br />
               <p className='text-end'><a href="" className='text-secondary'>Size & Fit Guide.</a></p>
               <div className="d-flex">
                 {
-                    singleData.availableSizes?.map((item, index)=>(
+                    cartData?.availableSizes?.map((item, index)=>(
                         <button className='w-100 p-2 btn btn-outline-dark rounded-0 fs-5'>{item}</button>
                     ))
                 }
               </div>
-              <button className="w-100 btn btn-dark rounded-0 p-3 mt-4" onClick={()=>AddCartHanlder(singleData)}>ADD TO CART</button>
+              <button className="w-100 btn btn-dark rounded-0 p-3 mt-4" onClick={()=>AddCartHanlder(cartData)}>ADD TO CART</button>
               <button className="w-100 btn btn-dark rounded-0 p-3 mt-4" onClick={()=>navigate(`/order-details/1`)}>BUY NOW</button>
               <br />
               <br />
@@ -97,14 +130,14 @@ function ProductDetails() {
         </center>
 
         {
-            data.filter((item)=>item.id!=id)?.map((item, index)=>(
+            data.filter((item)=>item._id!=id)?.map((item, index)=>(
                 <div className="col-md-3">
                 <a href={`/details/${item.id}`} className='nav-link'>
                 <div className="product p-2">
                       {/* <img src={item.productImage} alt={item.productName} className="w-100" /> */}
                       <br />
                       <small className="fs-6 fw-bold">{item.productName}</small><br />
-                      <small className="small">{item.productCategory}</small><br />
+                      <small className="small">{item.category}</small><br />
                       <small className="small">&#8377;{item.productPrice}</small>
                   </div>
                 </a>

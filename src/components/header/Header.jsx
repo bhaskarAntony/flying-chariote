@@ -67,6 +67,7 @@ function Header() {
            <ul type="none">
           <li> <p className="small"><a href="/collection" className='nav-link text-secondary'>MILD</a></p></li>
            <li> <p className="small"><a href="/login" className='nav-link text-secondary'>WILD</a></p></li>
+           <li> <p className="small"><a href="/login" className='nav-link text-secondary'>T-SHIRTS</a></p></li>
            </ul>
         </Accordion.Body>
       </Accordion.Item>
@@ -75,11 +76,7 @@ function Header() {
         <Accordion.Header>SHOP BY CATEGORY</Accordion.Header>
         <Accordion.Body>
         <ul type="none">
-          <li>    <p className="small"><a href="/about-us" className='nav-link text-secondary'>CO-ORDS</a></p></li>
-          <li>    <p className="small"><a href="/about-us" className='nav-link text-secondary'>DENIMS</a></p></li>
-          <li>    <p className="small"><a href="/about-us" className='nav-link text-secondary'>SWEATSHIRTS</a></p></li>
           <li>    <p className="small"><a href="/about-us" className='nav-link text-secondary'>T-SHIRTS</a></p></li>
-          <li>    <p className="small"><a href="/about-us" className='nav-link text-secondary'>PANTS</a></p></li>
         </ul>
             
         </Accordion.Body>
